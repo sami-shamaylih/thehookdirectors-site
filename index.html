@@ -488,7 +488,7 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
       <div><div class="scene"><span class="mono">How it works</span></div><h2>Apply. Test. Start.</h2>
         <p class="lede dim" style="margin-top:20px">Send your CV and portfolio. We review within a week. Shortlisted people do a short, paid test task, then start on a project.</p></div>
       <div class="formbox paper">
-        <form id="careerForm" novalidate>
+        <form id="careerForm" novalidate><input type="text" name="website_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
           <label><span>Your name</span><input id="cName" placeholder="Full name" autocomplete="name"></label>
           <div class="two">
             <label><span>Role</span>
@@ -517,7 +517,7 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
         <p class="lede" style="margin-top:28px">Tell us about your brand and what you want to achieve. We reply within 24 hours with next steps or a time for a call. Pricing is by quote, scoped to your goal and monthly ad spend.</p>
       </div>
       <div class="formbox paper">
-        <form id="leadForm" novalidate>
+        <form id="leadForm" novalidate><input type="text" name="website_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
           <label><span>Your name</span><input id="lName" placeholder="Full name" autocomplete="name"></label>
           <label><span>Brand name</span><input id="lBrand" placeholder="Your brand or company" autocomplete="organization"></label>
           <div class="two">
@@ -661,17 +661,34 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
     if(bad.length)document.getElementById(bad[0]).focus();
     return !bad.length;
   }
+  function send(kind,resId,fields,waMsg){
+    var form=document.getElementById(kind==="career"?"careerForm":"leadForm");
+    var btn=form.querySelector("button[type=submit]");
+    var label=btn.textContent;btn.disabled=true;btn.textContent="Sending...";
+    var done=function(){btn.disabled=false;btn.textContent=label};
+    var hp=form.querySelector("[name=website_hp]");
+    fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({kind:kind,fields:fields,website_hp:hp?hp.value:""})})
+      .then(function(r){if(!r.ok)throw 0;return r.json()})
+      .then(function(j){
+        if(!j||!j.ok)throw 0;
+        done();
+        var r=document.getElementById(resId);
+        r.innerHTML='<p class="mono" style="color:var(--accent)">Sent</p><p>'+(kind==="career"?"Thanks. We got your application and will review it within a week.":"Thanks. We got your details and will reply within 24 hours.")+'</p><div class="cta-row" style="margin-top:0"><a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(waMsg)+'">Also message us on WhatsApp</a></div>';
+        r.classList.add("on");form.reset();
+      })
+      .catch(function(){done();show(resId,waMsg)});
+  }
   document.getElementById("leadForm").addEventListener("submit",function(e){
     e.preventDefault();
     if(!need(["lName","lBrand","lContact"]))return;
     if(!v("lWeb")&&!v("lIg")){["lWeb","lIg"].forEach(function(i){document.getElementById(i).style.borderColor="var(--accent)"});document.getElementById("lWeb").focus();return}
     ["lWeb","lIg"].forEach(function(i){document.getElementById(i).style.borderColor=""});
-    show("leadRes","Hi The Hook Directors, I'd like to start a project.\n\nName: "+v("lName")+"\nBrand: "+v("lBrand")+"\nIndustry: "+v("lInd")+(v("lWeb")?"\nWebsite: "+v("lWeb"):"")+(v("lIg")?"\nInstagram: "+v("lIg"):"")+"\nContact: "+v("lContact")+"\nMonthly ad spend: "+v("lSpend")+(v("lNeed")?"\nNeed: "+v("lNeed"):""));
+    send("lead","leadRes",{Name:v("lName"),Brand:v("lBrand"),Industry:v("lInd"),Website:v("lWeb"),Instagram:v("lIg"),Contact:v("lContact"),"Monthly ad spend":v("lSpend"),Need:v("lNeed")},"Hi The Hook Directors, I'd like to start a project.\n\nName: "+v("lName")+"\nBrand: "+v("lBrand")+"\nIndustry: "+v("lInd")+(v("lWeb")?"\nWebsite: "+v("lWeb"):"")+(v("lIg")?"\nInstagram: "+v("lIg"):"")+"\nContact: "+v("lContact")+"\nMonthly ad spend: "+v("lSpend")+(v("lNeed")?"\nNeed: "+v("lNeed"):""));
   });
   document.getElementById("careerForm").addEventListener("submit",function(e){
     e.preventDefault();
     if(!need(["cName","cPort","cContact"]))return;
-    show("careerRes","Hi The Hook Directors, I'd like to join the crew.\n\nName: "+v("cName")+"\nRole: "+v("cRole")+"\nType: "+v("cType")+"\nPortfolio: "+v("cPort")+(v("cCv")?"\nCV: "+v("cCv"):"")+"\nContact: "+v("cContact"));
+    send("career","careerRes",{Name:v("cName"),Role:v("cRole"),Type:v("cType"),Portfolio:v("cPort"),CV:v("cCv"),Contact:v("cContact")},"Hi The Hook Directors, I'd like to join the crew.\n\nName: "+v("cName")+"\nRole: "+v("cRole")+"\nType: "+v("cType")+"\nPortfolio: "+v("cPort")+(v("cCv")?"\nCV: "+v("cCv"):"")+"\nContact: "+v("cContact"));
   });
 
   /* cinematic hero: anamorphic light, drifting beams, dust, live timecode */
