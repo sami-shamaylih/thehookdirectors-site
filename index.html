@@ -154,7 +154,7 @@ nav a.btn{color:var(--on-cta);border-bottom:0}
 .track p{color:var(--muted);font-size:16px}
 
 /* work tiles */
-.reel{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.reel{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .clip{position:relative;aspect-ratio:9/16;border:1px solid var(--line);overflow:hidden;cursor:pointer;background:var(--raised);padding:0;color:inherit;text-align:left;min-width:0;display:block;width:100%}
 .clip video{pointer-events:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .clip:hover .playbtn{background:var(--cta);border-color:var(--cta)}
@@ -320,7 +320,7 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
 
   <section>
     <div class="wrap">
-      <div class="scene"><span class="mono">Selected work</span><a class="mono" href="#work" style="color:var(--ink)">All work →</a></div>
+      <div class="scene"><span class="mono">Selected work</span><a class="mono" href="#work" style="color:var(--ink)">See more →</a></div>
       <div class="reel" id="reelHome"></div>
     </div>
   </section>
@@ -565,11 +565,12 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
   var pages=["home","services","work","about","careers","contact"];
   /* Video slots. Set src to a published file path (e.g. "videos/corner-market.mp4") and poster to a still to make a tile play. */
   var clips=[
+    {t:"Ad Launch 2",k:"Concept ad · 27s",s:"E-commerce",hl:"media/h-launch2.mp4",src:"media/f-launch2.mp4",poster:"media/p-launch2.jpg"},
+    {t:"Built for the big stage",k:"Brand film · 26s",s:"Esports",hl:"media/h-ctrl.mp4",src:"media/f-ctrl.mp4",poster:"media/p-ctrl.jpg"},
     {t:"Shop like you own the place",k:"Concept ad · 23s",s:"Grocery",hl:"media/h-corner.mp4",src:"media/f-corner.mp4",poster:"media/p-corner.jpg"},
-    {t:"Sold as is, in 24 hours",k:"Real estate · 22s",s:"Real estate",hl:"media/h-cash.mp4",src:"media/f-cash.mp4",poster:"media/p-cash.jpg"},
     {t:"Quilting, made calm",k:"Subscription box · 32s",s:"Subscription",hl:"media/h-quilty.mp4",src:"media/f-quilty.mp4",poster:"media/p-quilty.jpg"},
-    {t:"A global call to pause",k:"Advocacy · 9s",s:"Advocacy",hl:"media/h-pause.mp4",src:"media/f-pause.mp4",poster:"media/p-pause.jpg"},
-    {t:"Built for the big stage",k:"Brand film · 26s",s:"Esports",hl:"media/h-ctrl.mp4",src:"media/f-ctrl.mp4",poster:"media/p-ctrl.jpg"}
+    {t:"Sold as is, in 24 hours",k:"Real estate · 22s",s:"Real estate",hl:"media/h-cash.mp4",src:"media/f-cash.mp4",poster:"media/p-cash.jpg"},
+    {t:"A global call to pause",k:"Advocacy · 9s",s:"Advocacy",hl:"media/h-pause.mp4",src:"media/f-pause.mp4",poster:"media/p-pause.jpg"}
   ];
   /* Static images: add {t:"Title",k:"Category",src:"media/name.jpg"} here and they appear in the work grid and in the hero flythrough. */
   var stills=[];
@@ -579,9 +580,9 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
   function ph(c,i){
     return '<div class="ph"><div class="tc"><span class="mono">'+(c.s||"Reel")+'</span><span class="mono">0'+(i+1)+'</span></div><span class="playbtn"></span><div><h3>'+c.t+'</h3><p class="mono" style="margin-top:8px">'+c.k+'</p></div></div>';
   }
-  function reel(id){
+  function reel(id,limit){
     var el=document.getElementById(id);
-    el.innerHTML=clips.concat(stills).map(function(c,i){
+    el.innerHTML=clips.concat(stills).slice(0,limit||999).map(function(c,i){
       if(c.img){return '<button type="button" class="clip" data-i="'+i+'" aria-label="View '+c.t+'"><img src="'+c.img+'" alt="'+c.t+'" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div class="cap"><h3>'+c.t+'</h3><p class="mono">'+c.k+'</p></div></button>'}
       var inner=c.src?'<video muted loop playsinline disablepictureinpicture preload="none" tabindex="-1" '+(c.poster?'poster="'+c.poster+'"':'')+' data-src="'+(c.hl||c.src)+'"></video><span class="playbtn"></span><div class="cap"><h3>'+c.t+'</h3><p class="mono">'+c.k+'</p></div>':ph(c,i);
       return '<button type="button" class="clip" data-i="'+i+'" aria-label="Play '+c.t+'">'+inner+'</button>';
@@ -594,7 +595,7 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
       b.addEventListener("click",function(ev){ev.preventDefault();var c=clips.concat(stills)[+b.getAttribute("data-i")];if(c.img)openImg(c.img);else if(c.src)openModal(c.src)});
     });
   }
-  reel("reelHome");reel("reelWork");
+  reel("reelHome",4);reel("reelWork");
   /* Hero video: set heroSrc to a published file path to play it full-bleed behind the headline. */
   var heroSrc="",heroPoster="";
   var bg=document.getElementById("cineBg");
