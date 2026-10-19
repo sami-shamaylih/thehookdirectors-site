@@ -245,6 +245,15 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
   .cine h1 .ln>span,.dotp,.rec i,body::after,.ticker div{animation:none}
   html{scroll-behavior:auto}
 }
+
+/* results: smooth count-up (only when JS and motion are on) */
+.rs-stats b i{font-style:normal;color:var(--cta)}
+.rs-js>div{opacity:0;transform:translateY(14px)}
+.rs-go>div{animation:rsrise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.rs-go>div:nth-child(2){animation-delay:.15s}
+.rs-go>div:nth-child(3){animation-delay:.3s}
+.rs-go>div:nth-child(4){animation-delay:.45s}
+@keyframes rsrise{to{opacity:1;transform:none}}
 </style>
 
 <header>
@@ -282,11 +291,11 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
     <div class="wrap">
       <div class="scene"><span class="mono">Results</span><span class="mono">Meta · Google · YouTube · TikTok</span></div>
       <h2 style="max-width:12em">Performance you can measure.</h2>
-      <div class="stats">
-        <div><b>100M+</b><span>Views delivered</span></div>
-        <div><b>50M+</b><span>People reached</span></div>
-        <div><b>20K+</b><span>Leads generated</span></div>
-        <div><b>6+</b><span>Years in performance marketing</span></div>
+      <div class="stats rs-stats" id="rs">
+        <div><b data-n="100" data-s="M+">100M+</b><span>Views delivered</span></div>
+        <div><b data-n="50" data-s="M+">50M+</b><span>People reached</span></div>
+        <div><b data-n="20" data-s="K+">20K+</b><span>Leads generated</span></div>
+        <div><b data-n="6" data-s="+">6+</b><span>Years in performance marketing</span></div>
       </div>
       <p class="note" style="margin-top:20px">From campaigns led by our founder across Meta and Google Ads.</p>
     </div>
@@ -596,6 +605,25 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
     });
   }
   reel("reelHome",4);reel("reelWork");
+  /* results: count-up */
+  (function(){
+    var box=document.getElementById("rs");if(!box)return;
+    var bs=box.querySelectorAll("b");
+    var rm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(rm||!("IntersectionObserver" in window))return;
+    box.classList.add("rs-js");
+    bs.forEach(function(b){b.innerHTML="0<i>"+b.dataset.s+"</i>"});
+    function run(){
+      box.classList.add("rs-go");
+      bs.forEach(function(b,i){
+        var n=+b.dataset.n,s=b.dataset.s,t0=null,delay=i*150,dur=1800;
+        function f(ts){if(t0===null)t0=ts+delay;var p=Math.max(0,Math.min(1,(ts-t0)/dur)),e=1-Math.pow(1-p,3);b.innerHTML=Math.round(n*e)+"<i>"+s+"</i>";if(p<1)requestAnimationFrame(f)}
+        requestAnimationFrame(f);
+      });
+    }
+    new IntersectionObserver(function(en,io){en.forEach(function(e){if(e.isIntersecting){io.disconnect();run()}})},{threshold:.4}).observe(box);
+  })();
+
   /* Hero video: set heroSrc to a published file path to play it full-bleed behind the headline. */
   var heroSrc="",heroPoster="";
   var bg=document.getElementById("cineBg");
