@@ -217,7 +217,17 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
 .modal video{max-height:86vh;max-width:100%;background:#000}
 .modal button{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:var(--gutr);background:#eef1f6;color:#0a0d14;border:0;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;cursor:pointer;border-radius:2px}
 
+.lpgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(24px,4vw,40px)}
+.lpcard{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit;border:1px solid var(--line);background:var(--surface);min-width:0}
+.lpcard img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)}
+.lpcard div{padding:4px 18px 20px;display:flex;flex-direction:column;gap:8px}
+.lpcard h3{margin:0}
+.lpcard p{color:var(--muted);font-size:15px;margin:0}
+.lpcard .mono{color:var(--accent)}
+.lpcard:hover{border-color:var(--accent)}
+.lpcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (max-width:900px){
+  .lpgrid{grid-template-columns:1fr}
   .g4{grid-template-columns:repeat(2,1fr)}
   .tracks,.cols,.foot,.mk{grid-template-columns:1fr}
   .reel{grid-template-columns:repeat(2,1fr)}
@@ -376,6 +386,8 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
         <div class="card"><span class="mono">Meta</span><h3>Facebook and Instagram ads</h3><p>Account setup, pixel and conversion tracking, audience building, lead and sales campaigns, retargeting, and weekly optimization.</p></div>
         <div class="card"><span class="mono">TikTok</span><h3>TikTok ads</h3><p>Native-feeling creative, Spark Ads and testing structures that find the angles worth scaling.</p></div>
         <div class="card"><span class="mono">Google</span><h3>Google and YouTube ads</h3><p>Search for people already looking, YouTube for reach and consideration, and remarketing to bring visitors back.</p></div>
+        <div class="card"><span class="mono">Pages</span><h3>Landing pages</h3><p>One offer, one page, one action. Designed and written in English and Arabic (right-to-left), mobile first, with the form and conversion tracking connected so every lead is counted.</p></div>
+        <div class="card"><span class="mono">Funnels</span><h3>Sales funnels</h3><p>The path from ad to booked call or sale: landing page, lead form, follow-up and retargeting, mapped end to end and tested one step at a time.</p></div>
         <div class="card"><span class="mono">Strategy</span><h3>Funnel and testing plan</h3><p>Who to target, what to say, how to split budget and which tests come first, built from your numbers.</p></div>
         <div class="card"><span class="mono">Reporting</span><h3>Reporting and optimization</h3><p>A weekly report in plain language: spend, results, what we changed and what comes next. Monthly review calls.</p></div>
       </div>
@@ -424,6 +436,19 @@ footer{background:#070a10;color:#eef1f6;border-top:1px solid #232c3c;padding-blo
       <div class="scene"><span class="mono">Reel</span><span class="mono">Concept ads</span></div>
       <p class="lede dim" style="margin-bottom:32px;max-width:36em">Concept ads made to show a creative direction. They are not client campaigns.</p>
       <div class="reel" id="reelWork"></div>
+    </div>
+  </section>
+  <section class="paper">
+    <div class="wrap">
+      <div class="scene"><span class="mono">Landing pages</span><span class="mono">Concepts</span></div>
+      <h2 style="max-width:13em">Landing page concepts, in English and Arabic.</h2>
+      <p class="lede dim" style="max-width:36em">Three concept pages for fictional coaching and education offers, built to show structure, copy and design. Names, offers and testimonials are made up, and the portraits are AI-generated. They are not client work.</p>
+      <div class="lpgrid">
+        <a class="lpcard" href="/concepts/founder-reset.html"><img src="/media/lp-founder-reset.jpg" alt="Founder Reset concept landing page" loading="lazy"><div><span class="mono">1:1 coaching</span><h3>Founder Reset</h3><p>A strategy-session offer for founders, with a 90-day plan and a booking form.</p></div></a>
+        <a class="lpcard" href="/concepts/course-in-14.html"><img src="/media/lp-course-in-14.jpg" alt="Course in 14 concept landing page" loading="lazy"><div><span class="mono">Live workshop</span><h3>Course in 14</h3><p>A workshop sign-up page for creators, with a 14-day roadmap and a ticket card.</p></div></a>
+        <a class="lpcard" href="/concepts/fluent-at-work.html"><img src="/media/lp-fluent-at-work.jpg" alt="Fluent at Work concept landing page" loading="lazy"><div><span class="mono">Cohort program</span><h3>Fluent at Work</h3><p>An 8-week English cohort with level groups, a weekly calendar and enrolment.</p></div></a>
+      </div>
+      <p class="note" style="margin-top:20px">Each page switches between English and Arabic.</p>
     </div>
   </section>
   <section class="ctadark">
