@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Lumen Skin Clinic | Concept landing page | The Hook Directors</title>
+<script>window.dataLayer=window.dataLayer||[];(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PC7MNCK7');</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#f4f7f4;--card:#fff;--ink:#0e2421;--mute:#4b625e;--line:#d5e0dc;--deep:#0f4c4a;--lime:#d9f56a;--mint:#e2f1ec;--on:#fff;--f:'Hanken Grotesk','IBM Plex Sans Arabic',system-ui,sans-serif;--d:'Fraunces','IBM Plex Sans Arabic',Georgia,serif}
+@media (prefers-color-scheme:dark){:root{--bg:#09181a;--card:#0f2326;--ink:#eaf4f1;--mute:#9db8b2;--line:#1d3a3c;--deep:#0b2f2e;--mint:#12302f}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.65}
+html[lang="ar"] .en,html:not([lang="ar"]) .ar{display:none!important}
+h1,h2,h3,p{margin:0}
+.in{max-width:1080px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left,0px))}
+:focus-visible{outline:3px solid #7fb7ff;outline-offset:2px}
+.bar{background:#0a1a1c;color:#cfe1dc;font-size:14px}
+.bar .in{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:9px;padding-bottom:9px}
+.bar a{color:#cfe1dc}
+.lang{background:none;border:1px solid #3a5754;color:#cfe1dc;border-radius:999px;padding:3px 12px;font:inherit;cursor:pointer}
+nav{background:var(--card);border-bottom:1px solid var(--line)}
+nav .in{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.logo{font-family:var(--d);font-weight:600;font-size:24px;letter-spacing:-.01em}
+.logo i{display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px var(--deep);margin-inline-end:9px;vertical-align:1px}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;padding:15px 26px;font:600 17px var(--f);cursor:pointer;text-decoration:none;min-height:52px}
+.btn.wa{background:var(--lime);color:#0e2421}
+.btn.wa:hover{background:#cdee4d}
+.btn.line{background:transparent;color:var(--on);border:1.5px solid rgba(255,255,255,.45)}
+.btn.sm{padding:10px 20px;min-height:44px;font-size:15px;background:var(--deep);color:#fff}
+.hero{background:var(--deep);color:var(--on);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline-end:-160px;top:-160px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(217,245,106,.28),rgba(217,245,106,0) 65%)}
+.hero .in{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:76px;padding-bottom:84px;position:relative;z-index:1}
+.hero h1{font-family:var(--d);font-weight:500;font-size:clamp(40px,6vw,70px);line-height:1.04;letter-spacing:-.02em}
+html[lang="ar"] .hero h1{font-weight:600;line-height:1.25;letter-spacing:0}
+.hero p.lede{margin-top:22px;font-size:19px;color:#cfe6df;max-width:46ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.fine{margin-top:16px;font-size:14px;color:#9fc5bb}
+.panel{background:var(--card);color:var(--ink);border-radius:22px;padding:26px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.panel h2{font-family:var(--d);font-weight:500;font-size:26px;line-height:1.2}
+.panel p.s{color:var(--mute);font-size:15px;margin:6px 0 16px}
+label{display:block;font-size:14px;font-weight:600;margin:12px 0 5px}
+input,select{width:100%;font:inherit;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);min-height:48px}
+.panel .btn{width:100%;justify-content:center;margin-top:18px;background:var(--deep);color:#fff}
+.hp{position:absolute;inset-inline-start:-9999px}
+.msg{margin-top:12px;font-size:15px;font-weight:600;min-height:22px}
+section{padding:76px 0}
+.h2{font-family:var(--d);font-weight:500;font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.015em;max-width:20ch}
+html[lang="ar"] .h2{font-weight:600;line-height:1.3;letter-spacing:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.step b{display:block;font-family:var(--d);font-size:22px;font-weight:500;margin-bottom:8px}
+.step span{color:var(--mute);font-size:16px}
+.mint{background:var(--mint)}
+.tx{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.t{background:var(--card);border-radius:18px;padding:26px;border:1px solid var(--line)}
+.t h3{font-family:var(--d);font-weight:500;font-size:22px}
+.t p{margin-top:8px;color:var(--mute);font-size:16px}
+.t a{display:inline-block;margin-top:14px;font-weight:600;color:var(--deep);text-decoration:underline;text-underline-offset:4px}
+@media (prefers-color-scheme:dark){.t a{color:var(--lime)}.btn.sm{background:var(--lime);color:#0e2421}.panel .btn{background:var(--lime);color:#0e2421}}
+.end{background:#0a1a1c;color:#fff;text-align:center;padding:72px 0}
+.end h2{font-family:var(--d);font-weight:500;font-size:clamp(30px,4.4vw,48px);line-height:1.12;max-width:20ch;margin:0 auto}
+html[lang="ar"] .end h2{font-weight:600;line-height:1.3}
+.end .cta{justify-content:center}
+footer{padding:26px 0;font-size:14px;color:var(--mute)}
+@media (max-width:820px){.hero .in{grid-template-columns:1fr;padding-top:48px;padding-bottom:56px;gap:36px}.steps,.tx{grid-template-columns:1fr}section{padding:56px 0}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="in"><span><span class="en">Concept page by The Hook Directors. Clinic name and offer are fictional.</span><span class="ar">صفحة مفاهيمية من ذا هوك دايركترز. اسم العيادة والعرض خياليان.</span></span><span><a href="/#landing"><span class="en">All pages</span><span class="ar">كل الصفحات</span></a> <button class="lang" id="lang" type="button" data-track="lang_toggle">العربية</button></span></div></div>
+<nav><div class="in"><div class="logo"><i></i>Lumen</div><a class="btn sm" href="#book" data-track="nav_cta"><span class="en">Free consultation</span><span class="ar">استشارة مجانية</span></a></div></nav>
+
+<header class="hero"><div class="in">
+ <div>
+  <h1><span class="en">Calmer skin starts with a free 20-minute consultation.</span><span class="ar">بشرة أصفى تبدأ باستشارة مجانية لمدة ٢٠ دقيقة.</span></h1>
+  <p class="lede"><span class="en">Tell us what bothers you. A dermatologist maps a plan, with prices up front, before you spend a dinar.</span><span class="ar">أخبرنا بما يزعجك. يضع طبيب الجلدية خطة واضحة بأسعار معلنة قبل أن تدفع أي دينار.</span></p>
+  <div class="cta">
+   <a class="btn wa" id="wa1" href="#" data-track="whatsapp_click" data-wa="hero"><span class="en">Chat on WhatsApp</span><span class="ar">تحدث معنا عبر واتساب</span></a>
+   <a class="btn line" href="#book" data-track="cta_click"><span class="en">Or book a call-back</span><span class="ar">أو احجز مكالمة</span></a>
+  </div>
+  <p class="fine"><span class="en">We reply within one working hour, 10 am to 8 pm, Saturday to Thursday.</span><span class="ar">نرد خلال ساعة عمل، من ١٠ صباحًا إلى ٨ مساءً، السبت إلى الخميس.</span></p>
+ </div>
+ <form class="panel" id="book" novalidate>
+  <h2><span class="en">Book your free consultation</span><span class="ar">احجز استشارتك المجانية</span></h2>
+  <p class="s"><span class="en">Two fields. We call you back.</span><span class="ar">حقلان فقط. نتصل بك.</span></p>
+  <label for="n"><span class="en">Your name</span><span class="ar">الاسم</span></label><input id="n" name="Name" autocomplete="name" required>
+  <label for="p"><span class="en">Phone or WhatsApp</span><span class="ar">رقم الهاتف أو واتساب</span></label><input id="p" name="Contact" inputmode="tel" autocomplete="tel" required>
+  <label for="c"><span class="en">What would you like help with?</span><span class="ar">ما الذي تحتاج مساعدة فيه؟</span></label>
+  <select id="c" name="Concern"><option>Acne and scars</option><option>Pigmentation</option><option>Anti-ageing</option><option>Not sure yet</option></select>
+  <input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <button class="btn" type="submit" data-track="form_submit_click"><span class="en">Request my call-back</span><span class="ar">اطلب مكالمتي</span></button>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
+ </form>
+</div></header>
+
+<section><div class="in">
+ <h2 class="h2"><span class="en">Three steps. No surprises.</span><span class="ar">ثلاث خطوات. بلا مفاجآت.</span></h2>
+ <div class="steps">
+  <div class="step"><b><span class="en">Tell us</span><span class="ar">أخبرنا</span></b><span><span class="en">Message us or leave your number. It takes under a minute.</span><span class="ar">راسلنا أو اترك رقمك. يستغرق أقل من دقيقة.</span></span></div>
+  <div class="step"><b><span class="en">Meet your dermatologist</span><span class="ar">قابل طبيبك</span></b><span><span class="en">A free 20-minute visit or video call to look at your skin.</span><span class="ar">زيارة أو مكالمة فيديو مجانية لمدة ٢٠ دقيقة لفحص بشرتك.</span></span></div>
+  <div class="step"><b><span class="en">Get your plan</span><span class="ar">احصل على خطتك</span></b><span><span class="en">Treatments, number of sessions and total price in writing.</span><span class="ar">العلاجات وعدد الجلسات والسعر الكامل مكتوبًا.</span></span></div>
+ </div>
+</div></section>
+
+<section class="mint"><div class="in">
+ <h2 class="h2"><span class="en">Where most people start.</span><span class="ar">من أين يبدأ معظم الناس.</span></h2>
+ <div class="tx">
+  <div class="t"><h3><span class="en">Acne and scars</span><span class="ar">حب الشباب وآثاره</span></h3><p><span class="en">A routine and, if needed, in-clinic treatment to calm breakouts and fade marks.</span><span class="ar">روتين، وعند الحاجة علاج في العيادة لتهدئة الحبوب وتفتيح الآثار.</span></p><a href="#book" data-track="cta_click"><span class="en">Ask about this</span><span class="ar">اسأل عن هذا</span></a></div>
+  <div class="t"><h3><span class="en">Pigmentation</span><span class="ar">التصبغات</span></h3><p><span class="en">Even out dark spots and sun marks with a plan matched to your skin type.</span><span class="ar">وحّد لون البشرة وخفف البقع بخطة تناسب نوع بشرتك.</span></p><a href="#book" data-track="cta_click"><span class="en">Ask about this</span><span class="ar">اسأل عن هذا</span></a></div>
+  <div class="t"><h3><span class="en">Anti-ageing</span><span class="ar">مكافحة التقدم في السن</span></h3><p><span class="en">Gentle, step-by-step care that keeps your face looking like you.</span><span class="ar">عناية لطيفة تدريجية تحافظ على ملامحك الطبيعية.</span></p><a href="#book" data-track="cta_click"><span class="en">Ask about this</span><span class="ar">اسأل عن هذا</span></a></div>
+ </div>
+</div></section>
+
+<div class="end"><div class="in">
+ <h2><span class="en">Your first step costs nothing.</span><span class="ar">خطوتك الأولى بلا أي تكلفة.</span></h2>
+ <div class="cta"><a class="btn wa" id="wa2" href="#" data-track="whatsapp_click" data-wa="footer"><span class="en">Chat on WhatsApp</span><span class="ar">تحدث معنا عبر واتساب</span></a></div>
+</div></div>
+<footer><div class="in"><span class="en">Concept landing page. The clinic, offer and prices are fictional. Built and tracked by The Hook Directors.</span><span class="ar">صفحة مفاهيمية. العيادة والعرض والأسعار خيالية. تصميم وتتبع ذا هوك دايركترز.</span></div></footer>
+
+<script>
+(function(){
+var WA="962797134901",dl=window.dataLayer=window.dataLayer||[];
+function ev(name,extra){var o={event:name,page_name:"lumen_free_consultation",lang:document.documentElement.lang};for(var k in extra||{})o[k]=extra[k];dl.push(o)}
+function waLink(pos){var t=document.documentElement.lang==="ar"?"مرحبًا، أريد حجز استشارة مجانية":"Hi, I'd like to book a free consultation";return "https://wa.me/"+WA+"?text="+encodeURIComponent(t)}
+["wa1","wa2"].forEach(function(id){var a=document.getElementById(id);a.href=waLink();a.target="_blank";a.rel="noopener";a.addEventListener("click",function(){a.href=waLink();ev("whatsapp_click",{position:a.getAttribute("data-wa")})})});
+Array.prototype.forEach.call(document.querySelectorAll('[data-track="cta_click"],[data-track="nav_cta"]'),function(a){a.addEventListener("click",function(){ev("cta_click",{cta:a.getAttribute("data-track")})})});
+document.getElementById("lang").addEventListener("click",function(){var ar=document.documentElement.lang!=="ar";document.documentElement.lang=ar?"ar":"en";document.documentElement.dir=ar?"rtl":"ltr";this.textContent=ar?"English":"العربية";ev("lang_toggle",{to:ar?"ar":"en"})});
+var f=document.getElementById("book"),started=false;
+f.addEventListener("focusin",function(){if(!started){started=true;ev("form_start")}});
+var sent=false,msg=document.getElementById("msg");
+f.addEventListener("submit",function(e){e.preventDefault();if(sent)return;
+ var n=f.Name.value.trim(),p=f.Contact.value.trim(),ar=document.documentElement.lang==="ar";
+ if(!n||p.replace(/\D/g,"").length<8){msg.textContent=ar?"أدخل الاسم ورقمًا صحيحًا.":"Please enter your name and a valid phone number.";return}
+ msg.textContent=ar?"جارٍ الإرسال...":"Sending...";
+ fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({kind:"lead",fields:{Name:n,Contact:p,Brand:"Lumen Skin Clinic (concept page)",Concern:f.Concern.value,Source:"concept: free-consultation"},website_hp:document.getElementById("hp").value})})
+ .then(function(r){if(!r.ok)throw 0;sent=true;msg.textContent=ar?"شكرًا! سنتصل بك خلال ساعة عمل.":"Thanks! We will call you within one working hour.";ev("generate_lead",{form:"free_consultation",concern:f.Concern.value})})
+ .catch(function(){msg.textContent=ar?"تعذر الإرسال. جرّب واتساب.":"Could not send. Please try WhatsApp instead."});
+});
+var marks={25:0,50:0,75:0};window.addEventListener("scroll",function(){var h=document.documentElement,p=Math.round((h.scrollTop+innerHeight)/h.scrollHeight*100);for(var m in marks){if(!marks[m]&&p>=+m){marks[m]=1;ev("scroll_depth",{percent:+m})}}},{passive:true});
+})();
+</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC7MNCK7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+</body>
+</html>
