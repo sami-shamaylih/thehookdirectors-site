@@ -31,11 +31,9 @@ nav .in{display:flex;align-items:center;justify-content:space-between;padding-to
 .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
 .btn.sm{padding:10px 22px;min-height:44px;font-size:14px;border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(6px)}
 .hero{background:var(--deep);color:var(--on);position:relative;overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(1100px 700px at 78% 30%,#1a5a52 0%,rgba(16,58,53,.0) 60%),radial-gradient(800px 600px at 8% 100%,#0f3f39 0%,rgba(10,38,35,0) 65%)}
-.orb{position:absolute;z-index:-1;inset-inline-end:-120px;top:70px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,244,222,.95) 0%,rgba(230,211,173,.75) 14%,rgba(120,170,155,.45) 40%,rgba(16,58,53,0) 70%);filter:blur(6px);opacity:.7;animation:float 14s ease-in-out infinite}
-.orb::after{content:"";position:absolute;inset:-40px;border-radius:50%;border:1px solid rgba(230,211,173,.28);box-shadow:0 0 0 70px rgba(230,211,173,.04),0 0 0 140px rgba(230,211,173,.025)}
-@keyframes float{50%{transform:translateY(-22px) scale(1.02)}}
-.hero>.in{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding-top:150px;padding-bottom:110px;position:relative}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#0a2623 0%,rgba(10,38,35,.94) 26%,rgba(10,38,35,.4) 52%,rgba(10,38,35,0) 76%),url(../media/lumen-hero.jpg) calc(100% + 240px) center/auto 100% no-repeat #0a2623}
+.hero>.in{display:block;padding-top:170px;padding-bottom:150px;position:relative;min-height:720px}
+.hero .copy{max-width:560px}
 .kick{display:inline-flex;gap:10px;align-items:center;font-size:14px;color:var(--gold2);letter-spacing:.04em;margin-bottom:22px}
 .kick i{width:30px;height:1px;background:var(--gold)}
 .hero h1{font-family:var(--d);font-weight:300;font-size:clamp(44px,6.4vw,84px);line-height:1.0;letter-spacing:-.025em;font-variation-settings:"opsz" 144}
@@ -88,24 +86,29 @@ html[lang="ar"] .end h2{font-weight:500;line-height:1.3}
 footer{padding:30px 0 96px;font-size:13px;color:var(--mute)}
 .sticky{display:none}
 @media (max-width:860px){
- .hero>.in{grid-template-columns:1fr;gap:44px;padding-top:120px;padding-bottom:64px}
- .orb{width:460px;height:460px;top:40px}
  section{padding:72px 0}
  .step{grid-template-columns:56px 1fr;gap:6px 14px}.step .tt{grid-column:2}.step em{font-size:34px}
  .tx{grid-template-columns:1fr}
  .sticky{display:flex;position:fixed;inset-inline:12px;bottom:12px;z-index:20}
  .sticky .btn{width:100%}
 }
+
+.consult{padding:110px 0 100px}
+.consult .in{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.room{margin:0;position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/4.6;background:var(--mint)}
+.room img{width:100%;height:100%;object-fit:cover;display:block}
+.room figcaption{position:absolute;inset-inline:0;bottom:0;padding:70px 28px 26px;color:#fff;font-family:var(--d);font-size:24px;font-weight:300;background:linear-gradient(0deg,rgba(6,21,19,.75),rgba(6,21,19,0))}
+.consult .panel{border:1px solid var(--line);box-shadow:0 40px 80px -50px rgba(10,38,35,.35)}
+@media (max-width:860px){.consult{padding:64px 0}.consult .in{grid-template-columns:1fr;gap:36px}.room{aspect-ratio:4/4.2}.hero>.in{padding-top:120px;padding-bottom:70px;min-height:0}.hero::before{background:linear-gradient(180deg,rgba(10,38,35,.25) 0%,rgba(10,38,35,.9) 62%,#0a2623 100%),url(../media/lumen-hero.jpg) 78% top/auto 62% no-repeat #0a2623}}
 </style>
 </head>
 <body>
 <div class="bar"><div class="in"><span><span class="en">Concept page by The Hook Directors. Clinic name and offer are fictional.</span><span class="ar">صفحة مفاهيمية من ذا هوك دايركترز. اسم العيادة والعرض خياليان.</span></span><span><a href="/#landing"><span class="en">All pages</span><span class="ar">كل الصفحات</span></a> &nbsp;<button class="lang" id="lang" type="button" data-track="lang_toggle">العربية</button></span></div></div>
 
 <header class="hero">
-<div class="orb" aria-hidden="true"></div>
 <nav><div class="in"><div class="logo"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14.5" stroke="#cdb48a"/><circle cx="16" cy="16" r="5" fill="#e6d3ad"/></svg>Lumen</div><a class="btn sm" href="#book" data-track="nav_cta"><span class="en">Free consultation</span><span class="ar">استشارة مجانية</span></a></div></nav>
 <div class="in">
- <div>
+ <div class="copy">
   <p class="kick rv"><i></i><span class="en">Dermatology, Amman</span><span class="ar">طب الجلدية، عمّان</span></p>
   <h1 class="rv d1"><span class="en">Calmer skin starts with a free consultation.</span><span class="ar">بشرة أصفى تبدأ باستشارة مجانية.</span></h1>
   <p class="lede rv d2"><span class="en">Tell us what bothers you. A dermatologist maps a plan, with prices in writing, before you spend a dinar.</span><span class="ar">أخبرنا بما يزعجك. يضع طبيب الجلدية خطة واضحة بأسعار مكتوبة قبل أن تدفع أي دينار.</span></p>
@@ -115,7 +118,12 @@ footer{padding:30px 0 96px;font-size:13px;color:var(--mute)}
   </div>
   <div class="trust rv d3"><span><span class="en">20-minute visit, no charge</span><span class="ar">زيارة ٢٠ دقيقة بلا تكلفة</span></span><span><span class="en">Prices in writing</span><span class="ar">أسعار مكتوبة</span></span><span><span class="en">Reply within one working hour</span><span class="ar">رد خلال ساعة عمل</span></span></div>
  </div>
- <form class="panel rv d2" id="book" novalidate>
+ 
+</div></header>
+
+<section class="consult"><div class="in">
+ <figure class="room"><img src="../media/lumen-room.jpg" alt="A patient sits calmly by a window while a dermatologist works at a desk behind her" width="880" height="1010" loading="lazy"><figcaption><span class="en">A calm room, a real conversation.</span><span class="ar">غرفة هادئة وحديث حقيقي.</span></figcaption></figure>
+ <form class="panel" id="book" novalidate>
   <h2><span class="en">Book your free consultation</span><span class="ar">احجز استشارتك المجانية</span></h2>
   <p class="s"><span class="en">Two fields. We call you back.</span><span class="ar">حقلان فقط. نتصل بك.</span></p>
   <label for="n"><span class="en">Your name</span><span class="ar">الاسم</span></label><input id="n" name="Name" autocomplete="name" required>
@@ -126,7 +134,7 @@ footer{padding:30px 0 96px;font-size:13px;color:var(--mute)}
   <button class="btn" type="submit" data-track="form_submit_click"><span class="en">Request my call-back</span><span class="ar">اطلب مكالمتي</span></button>
   <p class="msg" id="msg" role="status" aria-live="polite"></p>
  </form>
-</div></header>
+</div></section>
 
 <section><div class="in">
  <p class="eyebrow"><span class="en">How it works</span><span class="ar">كيف يعمل</span></p>
